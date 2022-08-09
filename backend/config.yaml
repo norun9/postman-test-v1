@@ -1,0 +1,16 @@
+test:
+  http:
+    port: 8080
+    web_domain: localhost
+    protcol: "http"
+    cors:
+      allowed_origins:
+        - "*"
+  mysql:
+    db_host: localhost
+    db_name: testdb
+    db_user_name: test
+    db_password: "test"
+    max_idle_conns: 10
+    max_open_conns: 10
+    conn_max_lifetime: 300s
