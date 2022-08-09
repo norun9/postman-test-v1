@@ -43,6 +43,7 @@ type MySQL struct {
 	DBName          string        `mapstructure:"db_name" validate:"required"`
 	DBUserName      string        `mapstructure:"db_user_name" validate:"required"`
 	DBPassword      string        `mapstructure:"db_password" validate:"required"`
+	DBPort          string        `mapstructure:"db_port" validate:"required"`
 	MaxIdleConns    int           `mapstructure:"max_idle_conns" validate:"required"`
 	MaxOpenConns    int           `mapstructure:"max_open_conns" validate:"required"`
 	ConnMaxLifetime time.Duration `mapstructure:"conn_max_lifetime" validate:"required"`

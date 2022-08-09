@@ -1,6 +1,7 @@
 package db
 
 import (
+	"context"
 	"database/sql"
 	"time"
 
@@ -23,7 +24,6 @@ func NewClient(db *sql.DB) Client {
 	return Client{db}
 }
 
-// // Get :
 func (c Client) Get(ctx context.Context) SQLHandler {
 	if tx := util.GetDBTx(ctx); tx != nil {
 		return tx

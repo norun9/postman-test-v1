@@ -1,16 +1,19 @@
+env:
+  name: "test"
 test:
   http:
-    port: 8080
+    port: 7070
     web_domain: localhost
     protcol: "http"
     cors:
       allowed_origins:
         - "*"
   mysql:
-    db_host: localhost
+    db_host: "127.0.0.1"
     db_name: testdb
     db_user_name: test
-    db_password: "test"
+    db_password: test
+    db_port: 5306
     max_idle_conns: 10
     max_open_conns: 10
     conn_max_lifetime: 300s

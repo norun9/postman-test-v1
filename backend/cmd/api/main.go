@@ -31,4 +31,12 @@ func main() {
 	handler := injector.InitializeRestHandler(c.HTTP, c.MySQL)
 	router.Route("/", handler.GetRoute)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", c.HTTP.Port), router))
+
+	//  curl -XGET -H 'Content-Type: application/json; charset=utf-8' "http://localhost:7070/v1/posts/2" | jq .
+	// {
+	// 		"id": 2,
+	// 		"content": "fugafuga",
+	// 		"created_at": "2022-08-08T20:00:00+09:00",
+	// 		"updated_at": "2022-08-08T20:00:00+09:00"
+	// }
 }

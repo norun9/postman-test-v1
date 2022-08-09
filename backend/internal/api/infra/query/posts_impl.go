@@ -11,7 +11,7 @@ import (
 	"github.com/norun9/postmantest/pkg/dbmodels"
 	"github.com/norun9/postmantest/pkg/errof"
 	"github.com/pkg/errors"
-	"github.com/volatiletech/sqlboiler/boil/qm"
+	"github.com/volatiletech/sqlboiler/v4/queries/qm"
 )
 
 type post struct {
