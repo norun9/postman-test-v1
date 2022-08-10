@@ -3,7 +3,7 @@ name: api-test
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   aws_cdk:
     runs-on: ubuntu-latest
