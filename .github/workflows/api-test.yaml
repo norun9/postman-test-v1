@@ -1,4 +1,4 @@
-name: aws-deploy
+name: api-test
 
 on:
   push:
