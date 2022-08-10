@@ -21,36 +21,19 @@ func (e InternalErr) Error() (msg string) {
 
 // InternalErrCodeNames :
 var InternalErrCodeNames = map[InternalErr]string{
-	ErrInternal:          "内部エラーが発生しました。",
-	ErrDatabase:          "データベースでの不整合が発生しました。",
-	ErrDataInconsistency: "データの不整合が発生しました。",
-	ErrWriteResponse:     "レスポンスの書き込みに失敗しました。",
-	ErrReadResponse:      "レスポンスの読み込みに失敗しました。",
-	ErrParseURL:          "URLの解析に失敗しました。",
-	ErrNewHTTPClient:     "HTTPクライアントの生成に失敗しました。",
-	ErrHTTPRequest:       "HTTPリクエストの実行に失敗しました。",
-	ErrStatusCode:        "ステータスコードが正常ではありません。",
-	ErrUnmarshalResponse: "レスポンスのアンマーシャリングに失敗しました。",
+	ErrInternal: "internal error has occurred.",
+	ErrDatabase: "inconsistency has occurred in the database.",
 }
 
 // CmdErrCodeNames :
 var ErrCodeNames = map[UserErr]string{
-	ErrNoPost: "post not found.",
+	ErrNoPost: "post model was not found.",
 }
 
 var (
 	// Internal Err
-	ErrInternal          InternalErr = "ErrInternal"
-	ErrDatabase          InternalErr = "ErrDatabase"
-	ErrDataInconsistency InternalErr = "ErrDataInconsistency"
-	ErrWriteResponse     InternalErr = "ErrWriteResponse"
-	ErrReadResponse      InternalErr = "ErrReadResponse"
-	ErrParseURL          InternalErr = "ErrParseURL"
-	ErrNewHTTPClient     InternalErr = "ErrCreateHTTPRequestClient"
-	ErrHTTPRequest       InternalErr = "ErrHTTPRequest"
-	ErrStatusCode        InternalErr = "ErrStatusCode"
-	ErrUnmarshalResponse InternalErr = "ErrUnmarshalResponse"
-
+	ErrInternal InternalErr = "ErrInternal"
+	ErrDatabase InternalErr = "ErrDatabase"
 	// User Err
 	ErrNoPost UserErr = "ErrNoPost"
 )

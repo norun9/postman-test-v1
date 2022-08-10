@@ -13,8 +13,6 @@ import (
 
 // Config :
 type Config struct {
-	Prd  AppConfig `mapstructure:"prd"`
-	Stg  AppConfig `mapstructure:"stg"`
 	Test AppConfig `mapstructure:"test"`
 }
 
@@ -47,8 +45,7 @@ type MySQL struct {
 	MaxIdleConns    int           `mapstructure:"max_idle_conns" validate:"required"`
 	MaxOpenConns    int           `mapstructure:"max_open_conns" validate:"required"`
 	ConnMaxLifetime time.Duration `mapstructure:"conn_max_lifetime" validate:"required"`
-	// ダミーDIのためのフラグ
-	Pseudo bool
+	Pseudo          bool
 }
 
 // Prepare :

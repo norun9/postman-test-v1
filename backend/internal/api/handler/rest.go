@@ -82,7 +82,6 @@ func (h restHandler) Exec(ctx context.Context, w http.ResponseWriter, r *http.Re
 			log15.Error(errors.Cause(err).Error(), "err", fmt.Sprintf("cause: %s, method: %s, path: %s,  params: %+v, err: %+v", errors.Cause(err), method, r.URL.Path, params, err))
 		}
 	}()
-	// {id} の部分が一致しないため、数字だけのpathを{id}にReplaceしている
 	path := idRegexp.ReplaceAllString(strings.TrimSuffix(r.URL.Path, "/"), "/{id}$1")
 	method = Method(r.Method)
 	route, ok := h.routeMap[Path{path, method}]
@@ -100,7 +99,6 @@ func (h restHandler) Exec(ctx context.Context, w http.ResponseWriter, r *http.Re
 
 	funcType := reflect.TypeOf(f)
 	if 1 < funcType.NumIn() {
-		// 引数2つ目が input params
 		inputType := funcType.In(1)
 		if inputType.Kind() != reflect.Slice {
 			if err = validate.Struct(params); err != nil {
@@ -108,14 +106,12 @@ func (h restHandler) Exec(ctx context.Context, w http.ResponseWriter, r *http.Re
 				return
 			}
 		}
-		// indirectを使って、値を参照する
 		args = append(args, reflect.Indirect(reflect.ValueOf(params)))
 	}
 
 	fv := reflect.ValueOf(f)
 	results := fv.Call(args)
 	var responseJSON []byte
-	// 返り値は1つ or 2つ
 	switch len(results) {
 	case 2:
 		normalResult, errResult := results[0], results[1]
