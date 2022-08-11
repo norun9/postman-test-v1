@@ -31,6 +31,9 @@ jobs:
         run: |
           make linux-setup
           cd backend && make build && cd cmd/api && ./main
+  test:
+    runs-on: ubuntu-latest
+    steps:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
