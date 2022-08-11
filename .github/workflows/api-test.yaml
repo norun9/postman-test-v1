@@ -27,6 +27,8 @@ jobs:
       - name: Setup Docker
         run: |
           cd backend/cmd/api && docker network create go_network && docker-compose down && docker-compose up -d
+      - name: Check container
+        run: cd backend/cmd/api && docker-compose ps -a
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
