@@ -16,3 +16,15 @@ services:
     volumes:
       - ./docker/db/config:/etc/mysql/conf.d
       - ./docker/db/initdb.d:/docker-entrypoint-initdb.d
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/backend/api/Dockerfile
+    ports:
+      - "7070:3000"
+    depends_on:
+      - mysql
+    volumes:
+      - ./:/home
+    command: /home/wait-for-it.sh db:5306 --timeout=30 --strict
+    tty: true

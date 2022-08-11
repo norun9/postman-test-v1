@@ -32,10 +32,6 @@ jobs:
       - name: Setup DB
         run: |
           cd backend/cmd/api && docker-compose down && docker-compose up -d
-      - name: Get dependencies
-        run: |
-          make linux-setup
-          cd backend && make build && cd cmd/api && ls && ./api
   test:
     runs-on: ubuntu-latest
     needs: base
