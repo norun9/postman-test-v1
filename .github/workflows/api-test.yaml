@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Setup DB
-      - run: |
+        run: |
           cd backend/cmd/api && docker-compose down && docker-compose up -d
       - name: Get dependencies
         run: |
