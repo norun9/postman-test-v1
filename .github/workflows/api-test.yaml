@@ -30,7 +30,7 @@ jobs:
       - name: Get dependencies
         run: |
           make linux-setup
-          cd backend && make build && ./main
+          cd backend && make build
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -38,7 +38,6 @@ jobs:
       - name: newman install
         if: contains(github.event_name, 'push')
         run: sudo npm install -g newman
-
       - name: setup
         if: contains(github.event_name, 'push')
         run: curl https://api.getpostman.com/collections/$POSTMAN_COLLECTION_ID?apikey=$POSTMAN_API_KEY > api.json
