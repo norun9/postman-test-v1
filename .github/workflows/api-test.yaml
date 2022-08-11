@@ -30,7 +30,7 @@ jobs:
       - name: Get dependencies
         run: |
           make linux-setup
-          cd backend && make build
+          cd backend && make build && cd .. && ./main
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
