@@ -5,8 +5,13 @@ on:
     branches:
       - main
 jobs:
+  base:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo base
   build:
     runs-on: ubuntu-latest
+    needs: base
     env:
       GO111MODULE: "on"
       TZ: "Asia/Tokyo"
@@ -33,7 +38,7 @@ jobs:
           cd backend && make build && cd cmd/api && ./main
   test:
     runs-on: ubuntu-latest
-    needs: build
+    needs: base
     steps:
       - name: Setup Node
         uses: actions/setup-node@v1
