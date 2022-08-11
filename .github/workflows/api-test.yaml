@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  aws_cdk:
+  build:
     runs-on: ubuntu-latest
     env:
       GO111MODULE: "on"
@@ -30,7 +30,7 @@ jobs:
       - name: Get dependencies
         run: |
           make linux-setup
-          cd backend/cmd/api && go build main.go && ./main
+          cd backend/cmd/api && go build main.go || exit 1 && ./main
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
