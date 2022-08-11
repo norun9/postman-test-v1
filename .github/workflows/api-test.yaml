@@ -40,6 +40,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: base
     steps:
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: "120s"
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
