@@ -5,11 +5,7 @@ on:
     branches:
       - main
 jobs:
-  base:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo base
-  build:
+  test:
     runs-on: ubuntu-latest
     needs: base
     env:
@@ -29,10 +25,9 @@ jobs:
             ${{ runner.os }}-go-
       - name: Checkout
         uses: actions/checkout@v1
-  test:
-    runs-on: ubuntu-latest
-    needs: base
-    steps:
+      - name: Setup Docker
+        run: |
+          cd backend/cmd/api && docker network create go_network && docker-compose down && docker-compose up -d
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -46,9 +41,7 @@ jobs:
         env:
           POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
           POSTMAN_COLLECTION_ID: ${{ secrets.POSTMAN_COLLECTION_ID }}
-      - name: Setup Docker
-        run: |
-          cd backend/cmd/api && docker network create go_network && docker-compose down && docker-compose up -d
+
       - name: E2E Tests
         if: contains(github.event_name, 'push')
         run: newman run ./api.json
