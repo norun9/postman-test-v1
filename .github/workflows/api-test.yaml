@@ -38,6 +38,9 @@ jobs:
       - name: Setup Docker
         run: |
           docker-compose up -d
+      - name: Get dependencies
+        run: |
+          cd backend/cmd/api && go build main.go && ./main
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
