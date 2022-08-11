@@ -6,6 +6,7 @@ require (
 	cloud.google.com/go/bigquery v1.37.0
 	cloud.google.com/go/storage v1.24.0
 	github.com/DATA-DOG/go-txdb v0.1.5
+	github.com/PuerkitoBio/goquery v1.5.1 // indirect
 	github.com/aws/aws-sdk-go v1.44.73
 	github.com/census-instrumentation/opencensus-proto v0.3.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -23,6 +24,7 @@ require (
 	github.com/go-chi/jwtauth/v5 v5.0.2
 	github.com/go-playground/validator/v10 v10.11.0
 	github.com/go-sql-driver/mysql v1.6.0
+	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/go-testfixtures/testfixtures/v3 v3.8.1
 	github.com/gocarina/gocsv v0.0.0-20220729221910-a7386ae0b221
 	github.com/golang/mock v1.6.0
@@ -44,6 +46,7 @@ require (
 	github.com/line/line-bot-sdk-go v7.8.0+incompatible
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mattn/go-sqlite3 v1.14.14 // indirect
+	github.com/pelletier/go-toml/v2 v2.0.2 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/protolambda/messagediff v1.4.0
 	github.com/rakyll/statik v0.1.7 // indirect
@@ -54,11 +57,14 @@ require (
 	github.com/spf13/afero v1.9.2 // indirect
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/viper v1.12.0
+	github.com/subosito/gotenv v1.4.0 // indirect
 	github.com/tkrajina/typescriptify-golang-structs v0.1.7
 	github.com/volatiletech/null/v8 v8.1.2
 	github.com/volatiletech/randomize v0.0.1
 	github.com/volatiletech/sqlboiler/v4 v4.12.0
 	github.com/volatiletech/strmangle v0.0.4
+	go.uber.org/atomic v1.9.0 // indirect
+	go.uber.org/multierr v1.8.0 // indirect
 	go.uber.org/zap v1.22.0
 	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
 	golang.org/x/sys v0.0.0-20220808155132-1c4a2a72c664 // indirect
