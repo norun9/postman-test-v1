@@ -28,7 +28,7 @@ jobs:
         run: |
           cd backend/cmd/api && docker system prune -f && docker network create go_network && docker-compose build && docker-compose up -d
       - name: Check container
-        run: cd backend/cmd/api && docker-compose logs go
+        run: cd backend/cmd/api && docker-compose logs
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
