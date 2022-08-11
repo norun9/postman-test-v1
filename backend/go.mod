@@ -24,9 +24,8 @@ require (
 	github.com/go-chi/jwtauth/v5 v5.0.2
 	github.com/go-playground/validator/v10 v10.11.0
 	github.com/go-sql-driver/mysql v1.6.0
-	github.com/go-testfixtures/testfixtures/v3 v3.6.1
+	github.com/go-testfixtures/testfixtures/v3 v3.8.1
 	github.com/gocarina/gocsv v0.0.0-20220729221910-a7386ae0b221
-	github.com/gofrs/uuid v3.3.0+incompatible // indirect
 	github.com/golang/mock v1.6.0
 	github.com/google/uuid v1.3.0
 	github.com/google/wire v0.5.0
@@ -34,9 +33,7 @@ require (
 	github.com/ikeikeikeike/go-sitemap-generator/v2 v2.0.2
 	github.com/inconshreveable/log15 v0.0.0-20201112154412-8562bdadbbac
 	github.com/jackc/pgconn v1.12.1 // indirect
-	github.com/jackc/pgtype v1.7.0 // indirect
 	github.com/jackc/pgx v3.6.2+incompatible // indirect
-	github.com/jackc/pgx/v4 v4.10.1 // indirect
 	github.com/jackc/puddle v1.2.1 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/k0kubun/colorstring v0.0.0-20150214042306-9440f1994b88 // indirect
@@ -63,7 +60,7 @@ require (
 	github.com/volatiletech/randomize v0.0.1
 	github.com/volatiletech/sqlboiler/v4 v4.12.0
 	github.com/volatiletech/strmangle v0.0.4
-	go.uber.org/zap v1.19.1
+	go.uber.org/zap v1.22.0
 	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
 	golang.org/x/sys v0.0.0-20220808155132-1c4a2a72c664 // indirect
 	google.golang.org/api v0.92.0
