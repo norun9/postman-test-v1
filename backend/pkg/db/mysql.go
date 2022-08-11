@@ -23,6 +23,7 @@ func NewMySQL(c config.MySQL) *sql.DB {
 		return nil
 	}
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=true&loc=%s", c.DBUserName, c.DBPassword, c.DBHost, c.DBPort, c.DBName, timezone)
+	fmt.Println(dsn)
 	openedDB, err := sql.Open("mysql", dsn)
 	if err != nil {
 		panic(err)
@@ -39,7 +40,7 @@ func NewMySQL(c config.MySQL) *sql.DB {
 	if fixtures, err = testfixtures.New(
 		testfixtures.Database(openedDB),
 		testfixtures.Dialect("mysql"),
-		testfixtures.Paths("../../testdata/fixture/common"),
+		testfixtures.Files("posts.yml"),
 	); err != nil {
 		log.Println(err)
 		log.Fatal(err)

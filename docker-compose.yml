@@ -1,7 +1,23 @@
 version: "3"
 
 services:
+  go:
+    container_name: go
+    build:
+      context: .
+      dockerfile: ./docker/backend/api/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    volumes:
+      - ./:/home
+    command: /home/wait-for-it.sh db:5306 --timeout=30 --strict
+    tty: true
+    networks:
+      - go_network
   mysql:
+    container_name: mysql-container
     platform: linux/x86_64
     image: mysql:5.7-oracle
     command: ["mysqld", "--ssl=0"]
@@ -12,19 +28,12 @@ services:
       MYSQL_PASSWORD: test
       TZ: Asia/Tokyo
     ports:
-      - 5306:3306
+      - "3306:3306"
     volumes:
       - ./docker/db/config:/etc/mysql/conf.d
       - ./docker/db/initdb.d:/docker-entrypoint-initdb.d
-  api:
-    build:
-      context: .
-      dockerfile: ./docker/backend/api/Dockerfile
-    ports:
-      - "7070:3000"
-    depends_on:
-      - mysql
-    volumes:
-      - ./:/home
-    command: /home/wait-for-it.sh db:5306 --timeout=30 --strict
-    tty: true
+    networks:
+      - go_network
+networks:
+  go_network:
+    external: true

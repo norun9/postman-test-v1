@@ -17,7 +17,6 @@ func main() {
 	router := chi.NewRouter()
 
 	router.Use(cors.Handler(cors.Options{
-
 		AllowedOrigins:   c.HTTP.CORS.AllowedOrigins,
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
@@ -28,6 +27,8 @@ func main() {
 
 	router.Get("/", func(w http.ResponseWriter, r *http.Request) {
 	})
+
+	log.Println("Server Started.")
 
 	handler := injector.InitializeRestHandler(c.HTTP, c.MySQL)
 	router.Route("/", handler.GetRoute)
