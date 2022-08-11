@@ -7,6 +7,9 @@ on:
 jobs:
   aws_cdk:
     runs-on: ubuntu-latest
+    env:
+      GO111MODULE: "on"
+      TZ: "Asia/Tokyo"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
