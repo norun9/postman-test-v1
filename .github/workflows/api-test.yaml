@@ -26,7 +26,7 @@ jobs:
           cd backend/cmd/api && docker-compose down && docker-compose up -d
       - name: Get dependencies
         run: |
-          go install github.com/volatiletech/sqlboiler/v4@v4.11.0 && go install github.com/volatiletech/sqlboiler/v4/drivers/sqlboiler-mysql@v4.11.0 && go install github.com/pressly/goose/cmd/goose@latest && go install github.com/google/wire/cmd/wire@latest \
+          make linux-up
           cd backend/cmd/api && go build main.go && ./main
       - name: Setup Node
         uses: actions/setup-node@v1
