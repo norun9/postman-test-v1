@@ -33,6 +33,7 @@ jobs:
           cd backend && make build && cd cmd/api && ./main
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Setup Node
         uses: actions/setup-node@v1
