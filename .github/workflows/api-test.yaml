@@ -25,7 +25,7 @@ jobs:
       - run: |
           cd backend/cmd/api && docker-compose down && docker-compose up -d
       - name: Get dependencies
-        run: |
+      - run: |
           make linux-up
           cd backend/cmd/api && go build main.go && ./main
       - name: Setup Node
