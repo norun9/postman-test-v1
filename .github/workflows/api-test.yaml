@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          docker-compose down && docker-compose up -d
+          cd backend && docker-compose down && docker-compose up -d
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
         with:
@@ -23,9 +23,6 @@ jobs:
             ${{ runner.os }}-go-
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Set up development db
-        run: |
-          mysql -h 127.0.0.1 --port 5306 -u root -p -e 'use testdb; source ./docker/db/initdb.d/ddl.sql;'
       - name: Get dependencies
         run: |
           cd backend/cmd/api && go build main.go && ./main
