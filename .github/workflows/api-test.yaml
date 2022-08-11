@@ -52,8 +52,7 @@ jobs:
 
       - name: E2E Tests
         if: contains(github.event_name, 'push')
-        run: docker-compose ps -a && newman run ./api.json
-
+        run: lsof -P -i:8080 && newman run ./api.json
       - name: Cleanup
         if: always()
         run: rm -f ./api.json
