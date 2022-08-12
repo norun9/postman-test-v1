@@ -27,29 +27,29 @@ jobs:
       - name: Setup DB
         run: |
           cd backend/cmd/api && docker system prune -f && docker network create go_network && docker-compose up -d mysql
-      - name: Sleep for 30 seconds
+      - name: Sleep for 20 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: "30s"
+          time: "20s"
       - name: Setup API
         run: |
           cd backend/cmd/api && docker-compose build go && docker-compose up -d go
-      - name: Check container
+      - name: Check Container
         run: cd backend/cmd/api && docker-compose logs && docker-compose ps -a
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: "14.x"
-      - name: newman install
+      - name: Install Newman
         if: contains(github.event_name, 'push')
         run: sudo npm install -g newman
-      - name: setup
+      - name: Fetch TestScript
         if: contains(github.event_name, 'push')
         run: curl https://api.getpostman.com/collections/$POSTMAN_COLLECTION_ID?apikey=$POSTMAN_API_KEY > api.json
         env:
           POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
           POSTMAN_COLLECTION_ID: ${{ secrets.POSTMAN_COLLECTION_ID }}
-      - name: E2E Tests
+      - name: Postman Test
         if: contains(github.event_name, 'push')
         run: newman run ./api.json
       - name: Cleanup
