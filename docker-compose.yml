@@ -10,9 +10,6 @@ services:
       - "8080:8080"
     depends_on:
       - mysql
-    volumes:
-      - ./:/home
-    command: /home/wait-for-it.sh db:5306 --timeout=30 --strict
     tty: true
     networks:
       - go_network
