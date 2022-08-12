@@ -28,6 +28,4 @@ ENV PWD $WORKDIR
 
 EXPOSE 3306
 
-RUN ls
-
 CMD api
