@@ -24,9 +24,16 @@ jobs:
             ${{ runner.os }}-go-
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Setup Docker
+      - name: Setup DB
         run: |
-          cd backend/cmd/api && docker system prune -f && docker network create go_network && docker-compose build && docker-compose up -d
+          cd backend/cmd/api && docker system prune -f && docker network create go_network && docker-compose up -d mysql
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: "30s"
+      - name: Setup API
+        run: |
+          cd backend/cmd/api && docker-compose build go && docker-compose up -d go
       - name: Check container
         run: cd backend/cmd/api && docker-compose logs && docker-compose ps -a
       - name: Setup Node
