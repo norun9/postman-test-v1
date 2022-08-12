@@ -27,10 +27,10 @@ jobs:
       - name: Setup DB
         run: |
           cd backend/cmd/api && docker system prune -f && docker network create go_network && docker-compose up -d mysql
-      - name: Sleep for 20 seconds
+      - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: "20s"
+          time: "10s"
       - name: Setup API
         run: |
           cd backend/cmd/api && docker-compose build go && docker-compose up -d go

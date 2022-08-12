@@ -17,7 +17,7 @@ services:
     networks:
       - go_network
   mysql:
-    container_name: mysql-container
+    container_name: mysql
     platform: linux/x86_64
     image: mysql:5.7-oracle
     command: ["mysqld", "--ssl=0"]

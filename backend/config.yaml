@@ -9,7 +9,7 @@ test:
       allowed_origins:
         - "*"
   mysql:
-    db_host: mysql-container
+    db_host: mysql
     db_name: testdb
     db_user_name: test
     db_password: test
