@@ -25,7 +25,7 @@ services:
       MYSQL_PASSWORD: test
       TZ: Asia/Tokyo
     ports:
-      - "3306:3306"
+      - "4306:3306"
     volumes:
       - ./docker/db/config:/etc/mysql/conf.d
       - ./docker/db/initdb.d:/docker-entrypoint-initdb.d

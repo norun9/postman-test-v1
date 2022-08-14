@@ -1,7 +1,7 @@
 [mysql]
   dbname="testdb"
   host="0.0.0.0"
-  port=5306
+  port=4306
   user="root"
   pass=""
   sslmode="false"

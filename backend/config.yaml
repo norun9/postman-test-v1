@@ -13,7 +13,7 @@ test:
     db_name: testdb
     db_user_name: test
     db_password: test
-    db_port: 3306
+    db_port: 4306
     max_idle_conns: 10
     max_open_conns: 10
     conn_max_lifetime: 300s
