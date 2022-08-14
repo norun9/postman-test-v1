@@ -26,6 +26,4 @@ ADD backend/testdata/fixture/common/posts.yml /app/
 
 ENV PWD $WORKDIR
 
-EXPOSE 4306
-
 CMD api
