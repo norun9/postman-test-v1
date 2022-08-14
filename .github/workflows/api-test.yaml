@@ -36,7 +36,7 @@ jobs:
         run: |
           cd backend/cmd/api && docker-compose build go && docker-compose up -d go
       - name: Check Container
-        run: cd backend/cmd/api && docker-compose logs && docker-compose ps -a
+        run: cd backend/cmd/api && docker-compose ps -a && docker-compose logs
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
