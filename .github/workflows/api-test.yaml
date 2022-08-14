@@ -44,6 +44,7 @@ jobs:
       - name: Install Newman
         if: contains(github.event_name, 'push')
         run: sudo npm install -g newman
+      # Postmanテストスクリプト取得
       - name: Fetch TestScript
         if: contains(github.event_name, 'push')
         run: curl https://api.getpostman.com/collections/$POSTMAN_COLLECTION_ID?apikey=$POSTMAN_API_KEY > api.json
